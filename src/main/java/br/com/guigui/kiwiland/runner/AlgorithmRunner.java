@@ -21,7 +21,7 @@ public class AlgorithmRunner
 	{
 		for (Entry<Executor, AlgorithmResult> executor : executors.entrySet())
 		{
-			executor.setValue(executor.getKey().execute(railRoad));
+//			executor.setValue(executor.getKey().execute(railRoad));
 		}
 	}
 	
@@ -36,7 +36,7 @@ public class AlgorithmRunner
 		for (AlgorithmResult algorithmResult : executors.values())
 		{
 			++i;
-			System.out.println("Output #" + i + ": " + algorithmResult.getResult());
+//			System.out.println("Output #" + i + ": " + algorithmResult.getResult());
 		}
 	}
 

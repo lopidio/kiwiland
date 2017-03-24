@@ -20,6 +20,11 @@ public class RailRoad
 		Track track = new Track(from, to, distance);
 		from.addTrack(track);
 	}
+	
+	public Town getTown(String townName)
+	{
+		return towns.get(townName);
+	}
 
 	private Town getOrCreateTown(String townName)
 	{

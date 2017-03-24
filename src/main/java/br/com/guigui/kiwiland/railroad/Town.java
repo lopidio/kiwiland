@@ -7,6 +7,9 @@ import java.util.Map;
 public class Town
 {
 	String name;
+	/**
+	 * Maps the City destiny name with its track
+	 */
 	private Map<String, Track> tracks;
 	
 	public Town(String name)
@@ -28,6 +31,11 @@ public class Town
 	public Collection<Track> getTracks()
 	{
 		return tracks.values();
+	}
+
+	public Track getTrackTo(String destinyName)
+	{
+		return tracks.get(destinyName);
 	}
 
 }
