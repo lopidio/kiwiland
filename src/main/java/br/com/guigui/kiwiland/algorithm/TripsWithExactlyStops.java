@@ -57,7 +57,9 @@ public class TripsWithExactlyStops implements RailRoadAlgorithm
 	{
 		//Avoids useless iterations
 		if (current.getTracks().size() > exactlyStopsNumber)
+		{
 			return;
+		}
 
 		//Found candidate 
 		if (current.getLastTown().getName().equals(toCityName) && current.getTracks().size() == exactlyStopsNumber)

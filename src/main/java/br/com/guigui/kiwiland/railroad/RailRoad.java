@@ -2,7 +2,6 @@ package br.com.guigui.kiwiland.railroad;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 
 public class RailRoad
 {
@@ -35,20 +34,6 @@ public class RailRoad
 			Town createdTown = new Town(townName);
 			towns.put(townName, createdTown);
 			return createdTown;
-		}
-	}
-
-	public void showAllTracks()
-	{
-		for (Entry<String, Town> entry : towns.entrySet())
-		{
-			System.out.println("City " + entry.getKey());
-			Town town = entry.getValue();
-			for (Track track : town.getTracks())
-			{
-				System.out.println("\thas track to " + track.getDestination().getName() + "(" + track.getDistance() + ")");
-			}
-			
 		}
 	}
 

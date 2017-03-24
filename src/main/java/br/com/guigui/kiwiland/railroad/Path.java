@@ -32,26 +32,7 @@ public class Path
 
 	public int getTotalDistance()
 	{
-		int distanceSum = 0;
-		for (Track track : tracks)
-		{
-			distanceSum += track.getDistance();
-		}
-		return distanceSum;
-	}
-
-	public boolean containsTown(String townName)
-	{
-		if (tracks.isEmpty())
-			return false;
-		for (Track track : tracks)
-		{
-			if (track.getOrigin().getName().equals(townName))
-				return true;
-		}
-		if (tracks.get(tracks.size() - 1).getDestination().getName().equals(townName))
-			return true;
-		return false;
+		return tracks.stream().mapToInt(r -> r.getDistance()).sum();
 	}
 
 	public Town getLastTown()
@@ -61,18 +42,6 @@ public class Path
 		return tracks.get(tracks.size() - 1).getDestination();
 	}
 	
-	public void displayPath()
-	{
-		if (tracks.isEmpty())
-			System.out.println("There is no path");
-		System.out.print("Path: " + tracks.get(0).getOrigin().getName());
-		for (Track track : tracks) 
-		{
-			System.out.print("--(" + track.getDistance() + ")-->" + track.getDestination().getName());
-		}
-		System.out.println();
-	}
-
 	public boolean containsTownAsDestination(Town destination) 
 	{
 		return tracks.stream().filter(x -> x.getDestination().equals(destination)).findFirst().isPresent();

@@ -57,7 +57,9 @@ public class TripsWithMaximumStops implements RailRoadAlgorithm
 	{
 		//Avoids useless iterations
 		if (current.getTracks().size() > maxStops)
+		{
 			return;
+		}
 
 		//Found candidate 
 		if (current.getLastTown().getName().equals(toCityName) && current.getTracks().size() > 0)

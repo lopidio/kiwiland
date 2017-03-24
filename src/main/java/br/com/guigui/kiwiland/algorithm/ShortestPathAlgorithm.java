@@ -56,7 +56,9 @@ public class ShortestPathAlgorithm implements RailRoadAlgorithm
 	{
 		//Avoids useless iterations
 		if (null != bestPath && current.getTotalDistance() > bestPath.getTotalDistance())
+		{
 			return;
+		}
 
 		//Found candidate 
 		if (current.getLastTown().getName().equals(toCityName) && current.getTracks().size() > 0)

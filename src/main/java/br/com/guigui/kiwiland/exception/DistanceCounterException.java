@@ -1,6 +1,6 @@
 package br.com.guigui.kiwiland.exception;
 
-public class DistanceCounterException extends Exception
+public class DistanceCounterException extends RuntimeException
 {
 
 	/**
