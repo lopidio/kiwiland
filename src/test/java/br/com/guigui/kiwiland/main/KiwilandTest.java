@@ -1,4 +1,4 @@
-package br.com.guigui.kiwiland;
+package br.com.guigui.kiwiland.main;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

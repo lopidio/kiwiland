@@ -1,4 +1,4 @@
-package br.com.guigui.kiwiland;
+package br.com.guigui.kiwiland.main;
 
 /**
  * Hello world!
