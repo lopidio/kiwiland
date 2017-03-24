@@ -5,21 +5,21 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import br.com.guigui.kiwiland.algorithm.RailRoadAlgorithm;
-import br.com.guigui.kiwiland.algorithm.result.AlgorithmResult;
+import br.com.guigui.kiwiland.algorithmresult.AlgorithmResultDisplay;
 import br.com.guigui.kiwiland.railroad.RailRoad;
 
 public class AlgorithmRunner
 {
-	Map<Executor, AlgorithmResult> executors;
+	Map<Executor, AlgorithmResultDisplay> executors;
 	
 	public AlgorithmRunner()
 	{
-		executors = new HashMap<Executor, AlgorithmResult>();
+		executors = new HashMap<Executor, AlgorithmResultDisplay>();
 	}
 	
 	public void runAll(RailRoad railRoad)
 	{
-		for (Entry<Executor, AlgorithmResult> executor : executors.entrySet())
+		for (Entry<Executor, AlgorithmResultDisplay> executor : executors.entrySet())
 		{
 //			executor.setValue(executor.getKey().execute(railRoad));
 		}
@@ -33,7 +33,7 @@ public class AlgorithmRunner
 	public void showResults()
 	{
 		int i = 0;
-		for (AlgorithmResult algorithmResult : executors.values())
+		for (AlgorithmResultDisplay algorithmResult : executors.values())
 		{
 			++i;
 //			System.out.println("Output #" + i + ": " + algorithmResult.getResult());

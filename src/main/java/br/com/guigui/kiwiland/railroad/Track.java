@@ -3,13 +3,13 @@ package br.com.guigui.kiwiland.railroad;
 public class Track
 {
 	Town origin;
-	Town destiny;
+	Town destination;
 	int distance;
 
-	public Track(Town origin, Town destiny, int distance)
+	public Track(Town origin, Town destination, int distance)
 	{
 		this.origin = origin;
-		this.destiny = destiny;
+		this.destination = destination;
 		this.distance = distance;
 	}
 
@@ -18,9 +18,9 @@ public class Track
 		return origin;
 	}
 
-	public Town getDestiny()
+	public Town getDestination()
 	{
-		return destiny;
+		return destination;
 	}
 
 	public int getDistance()

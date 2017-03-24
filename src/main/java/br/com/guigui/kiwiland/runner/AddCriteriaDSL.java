@@ -1,7 +1,7 @@
 package br.com.guigui.kiwiland.runner;
 
 import br.com.guigui.kiwiland.algorithm.RailRoadAlgorithm;
-import br.com.guigui.kiwiland.algorithm.result.AlgorithmResult;
+import br.com.guigui.kiwiland.algorithmresult.AlgorithmResultDisplay;
 
 public class AddCriteriaDSL
 {
@@ -14,8 +14,8 @@ public class AddCriteriaDSL
 		this.algorithm = algorithm;
 	}
 
-	public void andResultAs(AlgorithmResult algorithmResult)
+	public void andResultAs(AlgorithmResultDisplay algorithmResult)
 	{
-		runner.add(new Executor(algorithm, algorithmResult));
+//		runner.add(new Executor(algorithm, algorithmResult));
 	}
 }

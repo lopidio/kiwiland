@@ -1,18 +1,13 @@
 package br.com.guigui.kiwiland.main;
 
-import java.util.List;
-
 import br.com.guigui.kiwiland.algorithm.DistanceCounterAlgorithm;
-import br.com.guigui.kiwiland.algorithm.RailRoadAlgorithm;
-import br.com.guigui.kiwiland.algorithm.result.AlgorithmResult;
-import br.com.guigui.kiwiland.algorithm.result.ShowDistanceResult;
+import br.com.guigui.kiwiland.algorithm.ShortestPathAlgorithm;
+import br.com.guigui.kiwiland.algorithmresult.ShowDistanceResult;
 import br.com.guigui.kiwiland.builder.RailRoadBuilder;
 import br.com.guigui.kiwiland.builder.StringRailRoadBuilder;
 import br.com.guigui.kiwiland.exception.DistanceCounterException;
 import br.com.guigui.kiwiland.exception.InvalidInputException;
 import br.com.guigui.kiwiland.railroad.RailRoad;
-import br.com.guigui.kiwiland.railroad.Route;
-import br.com.guigui.kiwiland.runner.AlgorithmRunner;
 
 /**
  * Hello world!
@@ -27,12 +22,17 @@ public class Kiwiland
 		{
         	RailRoadBuilder builder = new StringRailRoadBuilder("AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7");
         	RailRoad railRoad = builder.buildRailRoad();
-        	railRoad.showAllTracks();
-        	System.out.println(new ShowDistanceResult().getResult(new DistanceCounterAlgorithm(new String[]{"A", "B", "C"}).doTheMath(railRoad)));
-        	System.out.println(new ShowDistanceResult().getResult(new DistanceCounterAlgorithm(new String[]{"A", "D"}).doTheMath(railRoad)));
-        	System.out.println(new ShowDistanceResult().getResult(new DistanceCounterAlgorithm(new String[]{"A", "D", "C"}).doTheMath(railRoad)));
-        	System.out.println(new ShowDistanceResult().getResult(new DistanceCounterAlgorithm(new String[]{"A", "E", "B", "C", "D"}).doTheMath(railRoad)));
-        	System.out.println(new ShowDistanceResult().getResult(new DistanceCounterAlgorithm(new String[]{"A", "E", "D"}).doTheMath(railRoad)));
+//        	railRoad.showAllTracks();
+//        	System.out.println(new ShowDistanceResult().getResult(new DistanceCounterAlgorithm(new String[]{"A", "B", "C"}).doTheMath(railRoad)));
+//        	System.out.println(new ShowDistanceResult().getResult(new DistanceCounterAlgorithm(new String[]{"A", "D"}).doTheMath(railRoad)));
+//        	System.out.println(new ShowDistanceResult().getResult(new DistanceCounterAlgorithm(new String[]{"A", "D", "C"}).doTheMath(railRoad)));
+//        	System.out.println(new ShowDistanceResult().getResult(new DistanceCounterAlgorithm(new String[]{"A", "E", "B", "C", "D"}).doTheMath(railRoad)));
+//        	System.out.println(new ShowDistanceResult().getResult(new DistanceCounterAlgorithm(new String[]{"A", "E", "D"}).doTheMath(railRoad)));
+        	System.out.println(new ShowDistanceResult().getResult(new ShortestPathAlgorithm("A", "C").doTheMath(railRoad)));
+        	System.out.println(new ShowDistanceResult().getResult(new ShortestPathAlgorithm("D", "C").doTheMath(railRoad)));
+        	System.out.println(new ShowDistanceResult().getResult(new ShortestPathAlgorithm("D", "B").doTheMath(railRoad)));
+        	System.out.println(new ShowDistanceResult().getResult(new ShortestPathAlgorithm("B", "B").doTheMath(railRoad)));
+
 		}
 		catch (InvalidInputException e)
 		{

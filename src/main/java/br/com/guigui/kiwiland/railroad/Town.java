@@ -25,7 +25,7 @@ public class Town
 
 	public void addTrack(Track track)
 	{
-		tracks.put(track.getDestiny().getName(), track);
+		tracks.put(track.getDestination().getName(), track);
 	}
 
 	public Collection<Track> getTracks()
@@ -37,5 +37,22 @@ public class Town
 	{
 		return tracks.get(destinyName);
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+	    if (obj == null) {
+	        return false;
+	    }
+	    if (!Town.class.isAssignableFrom(obj.getClass())) {
+	        return false;
+	    }
+	    final Town other = (Town) obj;
+	    if ((this.name == null) ? (other.name != null) : !this.name.equals(other.name))
+	    {
+	        return false;
+	    }
+	    return true;
+	}
+	
 
 }

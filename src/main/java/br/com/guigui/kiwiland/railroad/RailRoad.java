@@ -46,9 +46,10 @@ public class RailRoad
 			Town town = entry.getValue();
 			for (Track track : town.getTracks())
 			{
-				System.out.println("\thas track to " + track.getDestiny().getName() + "(" + track.getDistance() + ")");
+				System.out.println("\thas track to " + track.getDestination().getName() + "(" + track.getDistance() + ")");
 			}
 			
 		}
 	}
+
 }

@@ -3,9 +3,9 @@ package br.com.guigui.kiwiland.algorithm;
 import java.util.List;
 
 import br.com.guigui.kiwiland.railroad.RailRoad;
-import br.com.guigui.kiwiland.railroad.Route;
+import br.com.guigui.kiwiland.railroad.Path;
 
 public interface RailRoadAlgorithm
 {
-	List<Route> doTheMath(RailRoad railRoad);
+	List<Path> doTheMath(RailRoad railRoad);
 }
