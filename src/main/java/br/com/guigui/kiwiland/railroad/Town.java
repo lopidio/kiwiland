@@ -6,16 +6,16 @@ import java.util.Map;
 
 public class Town
 {
-	String name;
+	private String name;
 	/**
-	 * Maps the City destiny name with its track
+	 * Maps the destination city with its track
 	 */
-	private Map<String, Track> tracks;
+	private Map<Town, Track> tracks;
 	
 	public Town(String name)
 	{
 		this.name = name;
-		tracks = new HashMap<String, Track>();
+		tracks = new HashMap<Town, Track>();
 	}
 
 	public String getName()
@@ -25,7 +25,7 @@ public class Town
 
 	public void addTrack(Track track)
 	{
-		tracks.put(track.getDestination().getName(), track);
+		tracks.put(track.getDestination(), track);
 	}
 
 	public Collection<Track> getTracks()
@@ -33,17 +33,20 @@ public class Town
 		return tracks.values();
 	}
 
-	public Track getTrackTo(String destinyName)
+	public Track getTrackTo(Town town)
 	{
-		return tracks.get(destinyName);
+		return tracks.get(town);
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-	    if (obj == null) {
+	public boolean equals(Object obj)
+	{
+	    if (obj == null)
+	    {
 	        return false;
 	    }
-	    if (!Town.class.isAssignableFrom(obj.getClass())) {
+	    if (!Town.class.isAssignableFrom(obj.getClass())) 
+	    {
 	        return false;
 	    }
 	    final Town other = (Town) obj;

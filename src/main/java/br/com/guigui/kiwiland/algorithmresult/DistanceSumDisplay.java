@@ -5,7 +5,7 @@ import java.util.List;
 import br.com.guigui.kiwiland.algorithm.RailRoadAlgorithmResult;
 import br.com.guigui.kiwiland.railroad.Path;
 
-public class ShowDistanceResult implements AlgorithmResultDisplay
+public class DistanceSumDisplay implements AlgorithmResultDisplay
 {
 	public String displayResult(RailRoadAlgorithmResult result) 
 	{

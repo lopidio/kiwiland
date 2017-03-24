@@ -8,17 +8,22 @@ import br.com.guigui.kiwiland.railroad.RailRoad;
 import br.com.guigui.kiwiland.railroad.Town;
 import br.com.guigui.kiwiland.railroad.Track;
 
-public class ShortestPathAlgorithm implements RailRoadAlgorithm
+public class TripsWithMaximumDistance implements RailRoadAlgorithm 
 {
 	private String fromCityName;
 	private String toCityName;
-	private Path bestPath;
+	private List<Path> paths;
+	private int maximumDistance;
 
-	public ShortestPathAlgorithm(String fromCityName, String toCityName)
+	public TripsWithMaximumDistance(String fromCityName, String toCityName, int maximumDistance)
 	{
 		super();
 		this.fromCityName = fromCityName;
 		this.toCityName = toCityName;
+		this.maximumDistance = maximumDistance;
+		paths = new ArrayList<>();
+		if (maximumDistance <= 0)
+			throw new IllegalArgumentException("Maximum distance must be greater than 0");
 	}
 
 	public RailRoadAlgorithmResult doTheMath(RailRoad railRoad)
@@ -29,16 +34,12 @@ public class ShortestPathAlgorithm implements RailRoadAlgorithm
 		// 3. Update the distances for all the neighbours (In the Priority Queue).
 		// Repeat the process till all the connected nodes are visited.
 		
-		List<Path> result = new ArrayList<>();
 		Town origin = railRoad.getTown(fromCityName);
 		if (null != origin)
 		{
 			run(origin);
-			
-			if (null != bestPath)
-				result.add(bestPath);
 		}
-		return new RailRoadAlgorithmResult(result);
+		return new RailRoadAlgorithmResult(paths);
 	}
 
 	private void run(Town origin)
@@ -55,15 +56,15 @@ public class ShortestPathAlgorithm implements RailRoadAlgorithm
 	private void depthFirstSearch(Path current)
 	{
 		//Avoids useless iterations
-		if (null != bestPath && current.getTotalDistance() > bestPath.getTotalDistance())
+		if (current.getTotalDistance() > maximumDistance)
+		{
 			return;
+		}
 
 		//Found candidate 
-		if (current.getLastTown().getName().equals(toCityName) && current.getTracks().size() > 0)
+		if (current.getLastTown().getName().equals(toCityName) && current.getTotalDistance() < maximumDistance)
 		{
-			if (null == bestPath || bestPath.getTotalDistance() > current.getTotalDistance())
-				bestPath = current;
-			return;
+			paths.add(current);
 		}
 		
 		runAgain(current);
@@ -74,7 +75,7 @@ public class ShortestPathAlgorithm implements RailRoadAlgorithm
 		//Run again
 		for (Track nextTrack : current.getLastTown().getTracks()) 
 		{
-			if (!current.containsTownAsDestination(nextTrack.getDestination()))
+//			if (!current.containsTownAsDestination(nextTrack.getDestination()))
 			{
 				List<Track> tracks = current.getTracks();
 				tracks.add(nextTrack);

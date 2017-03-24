@@ -10,8 +10,8 @@ import br.com.guigui.kiwiland.railroad.RailRoad;
 class Executor
 {
 
-	RailRoadAlgorithm algorithm;
-	AlgorithmResultDisplay algorithmResultDisplay;
+	private RailRoadAlgorithm algorithm;
+	private AlgorithmResultDisplay algorithmResultDisplay;
 	
 	public Executor(RailRoadAlgorithm algorithm, AlgorithmResultDisplay algorithmResult)
 	{

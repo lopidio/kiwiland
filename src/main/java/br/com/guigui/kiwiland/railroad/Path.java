@@ -23,7 +23,7 @@ public class Path
 		if (tracks.isEmpty())
 			return false;
 		Town lastTown = tracks.get(tracks.size() - 1).getDestination();
-		Track newTrack = lastTown.getTrackTo(town.getName());
+		Track newTrack = lastTown.getTrackTo(town);
 		if (null == newTrack)
 			return false;
 		tracks.add(newTrack);

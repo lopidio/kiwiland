@@ -27,7 +27,10 @@ public class DistanceCounterAlgorithm implements RailRoadAlgorithm
 		Town origin = railRoad.getTown(stopTowns[0]);
 		for (int i = 1; i < stopTowns.length; ++i)
 		{
-			Track track = origin.getTrackTo(stopTowns[i]);
+			Town destination = railRoad.getTown(stopTowns[i]);
+			if (null == destination)
+				return new RailRoadAlgorithmResult();
+			Track track = origin.getTrackTo(destination);
 			if (null == track)
 				return new RailRoadAlgorithmResult();
 			tracks.add(track);

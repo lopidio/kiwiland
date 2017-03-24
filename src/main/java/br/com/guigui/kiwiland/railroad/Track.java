@@ -2,9 +2,9 @@ package br.com.guigui.kiwiland.railroad;
 
 public class Track
 {
-	Town origin;
-	Town destination;
-	int distance;
+	private Town origin;
+	private Town destination;
+	private int distance;
 
 	public Track(Town origin, Town destination, int distance)
 	{

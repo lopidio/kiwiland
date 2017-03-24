@@ -6,7 +6,7 @@ import java.util.Map.Entry;
 
 public class RailRoad
 {
-	Map<String, Town> towns;
+	private Map<String, Town> towns;
 	
 	public RailRoad()
 	{

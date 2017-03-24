@@ -8,17 +8,22 @@ import br.com.guigui.kiwiland.railroad.RailRoad;
 import br.com.guigui.kiwiland.railroad.Town;
 import br.com.guigui.kiwiland.railroad.Track;
 
-public class ShortestPathAlgorithm implements RailRoadAlgorithm
+public class TripsWithExactlyStops implements RailRoadAlgorithm
 {
 	private String fromCityName;
 	private String toCityName;
-	private Path bestPath;
+	private List<Path> paths;
+	private int exactlyStopsNumber;
 
-	public ShortestPathAlgorithm(String fromCityName, String toCityName)
+	public TripsWithExactlyStops(String fromCityName, String toCityName, int exactlyStopsNumber)
 	{
 		super();
 		this.fromCityName = fromCityName;
 		this.toCityName = toCityName;
+		this.exactlyStopsNumber = exactlyStopsNumber;
+		paths = new ArrayList<>();
+		if (exactlyStopsNumber <= 0)
+			throw new IllegalArgumentException("Stops number must be greater than 0");
 	}
 
 	public RailRoadAlgorithmResult doTheMath(RailRoad railRoad)
@@ -29,16 +34,12 @@ public class ShortestPathAlgorithm implements RailRoadAlgorithm
 		// 3. Update the distances for all the neighbours (In the Priority Queue).
 		// Repeat the process till all the connected nodes are visited.
 		
-		List<Path> result = new ArrayList<>();
 		Town origin = railRoad.getTown(fromCityName);
 		if (null != origin)
 		{
 			run(origin);
-			
-			if (null != bestPath)
-				result.add(bestPath);
 		}
-		return new RailRoadAlgorithmResult(result);
+		return new RailRoadAlgorithmResult(paths);
 	}
 
 	private void run(Town origin)
@@ -55,14 +56,13 @@ public class ShortestPathAlgorithm implements RailRoadAlgorithm
 	private void depthFirstSearch(Path current)
 	{
 		//Avoids useless iterations
-		if (null != bestPath && current.getTotalDistance() > bestPath.getTotalDistance())
+		if (current.getTracks().size() > exactlyStopsNumber)
 			return;
 
 		//Found candidate 
-		if (current.getLastTown().getName().equals(toCityName) && current.getTracks().size() > 0)
+		if (current.getLastTown().getName().equals(toCityName) && current.getTracks().size() == exactlyStopsNumber)
 		{
-			if (null == bestPath || bestPath.getTotalDistance() > current.getTotalDistance())
-				bestPath = current;
+			paths.add(current);
 			return;
 		}
 		
@@ -74,7 +74,7 @@ public class ShortestPathAlgorithm implements RailRoadAlgorithm
 		//Run again
 		for (Track nextTrack : current.getLastTown().getTracks()) 
 		{
-			if (!current.containsTownAsDestination(nextTrack.getDestination()))
+//			if (!current.containsTownAsDestination(nextTrack.getDestination()))
 			{
 				List<Track> tracks = current.getTracks();
 				tracks.add(nextTrack);

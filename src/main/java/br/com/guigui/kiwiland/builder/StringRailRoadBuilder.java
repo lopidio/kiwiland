@@ -8,7 +8,7 @@ import br.com.guigui.kiwiland.railroad.RailRoad;
 
 public class StringRailRoadBuilder implements RailRoadBuilder
 {
-	List<String> input;
+	private List<String> input;
 	
 	public StringRailRoadBuilder(String inputString) throws InvalidInputException
 	{

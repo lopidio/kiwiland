@@ -10,7 +10,7 @@ import br.com.guigui.kiwiland.railroad.RailRoad;
 
 public class AlgorithmRunner
 {
-	Map<Executor, AlgorithmResultDisplay> executors;
+	private Map<Executor, AlgorithmResultDisplay> executors;
 	
 	public AlgorithmRunner()
 	{

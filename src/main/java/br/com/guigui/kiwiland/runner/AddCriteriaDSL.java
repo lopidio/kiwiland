@@ -5,8 +5,8 @@ import br.com.guigui.kiwiland.algorithmresult.AlgorithmResultDisplay;
 
 public class AddCriteriaDSL
 {
-	AlgorithmRunner runner;
-	RailRoadAlgorithm algorithm;
+	private AlgorithmRunner runner;
+	private RailRoadAlgorithm algorithm;
 	protected AddCriteriaDSL(AlgorithmRunner algorithmRunner, RailRoadAlgorithm algorithm)
 	{
 		super();
