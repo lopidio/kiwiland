@@ -4,7 +4,7 @@ import java.util.List;
 
 import br.com.guigui.kiwiland.railroad.Route;
 
-public interface TraceRoute
+public interface RailRoadAlgorithm
 {
-	List<Route> traceRoute();
+	List<Route> doTheMath();
 }
