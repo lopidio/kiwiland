@@ -4,7 +4,7 @@ import java.util.List;
 
 import br.com.guigui.kiwiland.railroad.Route;
 
-public class ShowDistance implements AlgorithmResult
+public class ShowDistanceResult implements AlgorithmResult
 {
 	public String getResult(List<Route> routes)
 	{

@@ -9,11 +9,11 @@ import br.com.guigui.kiwiland.railroad.Route;
 import br.com.guigui.kiwiland.railroad.Town;
 import br.com.guigui.kiwiland.railroad.Track;
 
-public class DistanceCounter implements RailRoadAlgorithm
+public class DistanceCounterAlgorithm implements RailRoadAlgorithm
 {
 	private String[] stopTowns;
 	
-	public DistanceCounter(String[] stopTowns) throws DistanceCounterException
+	public DistanceCounterAlgorithm(String[] stopTowns) throws DistanceCounterException
 	{
 		this.stopTowns = stopTowns;
 		if (stopTowns.length < 2)
