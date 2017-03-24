@@ -9,7 +9,7 @@ public class RailRoad
 	
 	public RailRoad()
 	{
-		towns = new HashMap<String, Town>();
+		towns = new HashMap<>();
 	}
 
 	public void addTrack(String fromTownName, String toTownName, int distance)

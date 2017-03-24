@@ -41,7 +41,7 @@ public class StringRailRoadBuilder implements RailRoadBuilder
 
 	private void iterateThroughInput(RailRoad railRoadReturn) 
 	{
-		input.parallelStream().forEach(string ->
+		input.stream().forEach(string ->
 			{
 				String fromTownInitials = String.valueOf(string.charAt(0));
 				String toTownInitials = String.valueOf(string.charAt(1));

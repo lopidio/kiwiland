@@ -2,8 +2,6 @@ package br.com.guigui.kiwiland.algorithm;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import br.com.guigui.kiwiland.exception.DistanceCounterException;
 import br.com.guigui.kiwiland.railroad.Path;
@@ -14,6 +12,7 @@ import br.com.guigui.kiwiland.railroad.Track;
 public class DistanceCounterAlgorithm implements RailRoadAlgorithm
 {
 	private List<String> stopTowns;
+	private Town origin;
 	
 	public DistanceCounterAlgorithm(List<String> stopTowns) throws DistanceCounterException
 	{
@@ -24,28 +23,41 @@ public class DistanceCounterAlgorithm implements RailRoadAlgorithm
 	
 	public RailRoadAlgorithmResult doTheMath(RailRoad railRoad)
 	{
+		origin = railRoad.getTown(stopTowns.stream().findFirst().orElseThrow(() -> new RuntimeException("There is no such string name")));
 		
-		List<Path> pahts = new ArrayList<Path>(); 
+		List<Path> paths = new ArrayList<Path>(); 
 		List<Track> tracks = new ArrayList<Track>();
-		Town origin = railRoad.getTown(stopTowns.stream().findFirst().orElseThrow(() -> new RuntimeException("There is no such string name")));
 		
-		Stream<String> notSkipedTowns = stopTowns.stream().skip(1);
-		
-		for (String name : notSkipedTowns.collect(Collectors.toList()))
+		stopTowns.stream().skip(1).forEachOrdered(townName ->
 		{
-			Town destination = railRoad.getTown(name);
-			if (null == destination)
-				return new RailRoadAlgorithmResult();
-			Track track = origin.getTrackTo(destination);
-			if (null == track)
-				return new RailRoadAlgorithmResult();
-			tracks.add(track);
+			Town destination = railRoad.getTown(townName);
+			Track track = checkAddition(destination);
+
+			if (null != track)
+				tracks.add(track);
+			else
+				tracks.clear();
 			
-			origin = track.getDestination();
-			
+		});
+		
+		if (!tracks.isEmpty())
+			paths.add(new Path(tracks));
+		
+		return new RailRoadAlgorithmResult(paths);
+	}
+
+	private Track checkAddition(Town destination)
+	{
+		Track track = null;
+		if (null != destination)
+		{
+			track = origin.getTrackTo(destination);
+			if (null != track)
+			{
+				origin = track.getDestination();
+			}
 		}
-		pahts.add(new Path(tracks));
-		return new RailRoadAlgorithmResult(pahts);
+		return track;
 	}
 
 }
