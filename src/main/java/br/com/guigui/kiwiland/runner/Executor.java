@@ -22,7 +22,8 @@ class Executor
 
 	public List<Path> execute(RailRoad railRoad)
 	{
-		return algorithm.doTheMath(railRoad);
+		return null;
+//		return algorithm.doTheMath(railRoad);
 	}
 
 }

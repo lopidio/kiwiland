@@ -1,10 +1,8 @@
 package br.com.guigui.kiwiland.algorithmresult;
 
-import java.util.List;
-
-import br.com.guigui.kiwiland.railroad.Path;
+import br.com.guigui.kiwiland.algorithm.RailRoadAlgorithmResult;
 
 public interface AlgorithmResultDisplay
 {
-	String getResult(List<Path> routes);
+	String displayResult(RailRoadAlgorithmResult result);
 }

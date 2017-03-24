@@ -21,7 +21,7 @@ public class ShortestPathAlgorithm implements RailRoadAlgorithm
 		this.toCityName = toCityName;
 	}
 
-	public List<Path> doTheMath(RailRoad railRoad)
+	public RailRoadAlgorithmResult doTheMath(RailRoad railRoad)
 	{
 		// Algo:
 		// 1. Take the unvisited node with minimum weight.
@@ -38,7 +38,7 @@ public class ShortestPathAlgorithm implements RailRoadAlgorithm
 			if (null != bestPath)
 				result.add(bestPath);
 		}
-		return result;
+		return new RailRoadAlgorithmResult(result);
 	}
 
 	private void run(Town origin)

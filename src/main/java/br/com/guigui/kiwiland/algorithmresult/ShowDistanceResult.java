@@ -2,17 +2,18 @@ package br.com.guigui.kiwiland.algorithmresult;
 
 import java.util.List;
 
+import br.com.guigui.kiwiland.algorithm.RailRoadAlgorithmResult;
 import br.com.guigui.kiwiland.railroad.Path;
 
 public class ShowDistanceResult implements AlgorithmResultDisplay
 {
-	public String getResult(List<Path> routes)
+	public String displayResult(RailRoadAlgorithmResult result) 
 	{
-		if (routes.isEmpty())
+		List<Path> paths = result.getPaths();
+		if (paths.isEmpty())
 			return "NO SUCH ROUTE";
 		
-		return String.valueOf(routes.stream().mapToInt(r -> r.getTotalDistance()).sum());
+		return String.valueOf(paths.stream().mapToInt(r -> r.getTotalDistance()).sum());
 	}
-
 
 }
