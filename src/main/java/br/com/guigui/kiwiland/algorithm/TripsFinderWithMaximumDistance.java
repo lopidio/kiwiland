@@ -8,14 +8,14 @@ import br.com.guigui.kiwiland.railroad.RailRoad;
 import br.com.guigui.kiwiland.railroad.Town;
 import br.com.guigui.kiwiland.railroad.Track;
 
-public class TripsWithMaximumDistance implements RailRoadAlgorithm 
+public class TripsFinderWithMaximumDistance implements RailRoadAlgorithm 
 {
 	private String fromCityName;
 	private String toCityName;
 	private List<Path> paths;
 	private int maximumDistance;
 
-	public TripsWithMaximumDistance(String fromCityName, String toCityName, int maximumDistance)
+	public TripsFinderWithMaximumDistance(String fromCityName, String toCityName, int maximumDistance)
 	{
 		super();
 		this.fromCityName = fromCityName;

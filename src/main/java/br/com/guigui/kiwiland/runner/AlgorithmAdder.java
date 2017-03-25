@@ -12,7 +12,7 @@ public class AlgorithmAdder
 		this.runner = runner;
 	}
 
-	public AddAlgorithmDisplay addOtherAlgorithm(RailRoadAlgorithm algorithm) 
+	public AddAlgorithmDisplay addAnotherAlgorithm(RailRoadAlgorithm algorithm) 
 	{
 		return runner.addAlgorithm(algorithm);
 	}

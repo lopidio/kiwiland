@@ -8,21 +8,21 @@ import br.com.guigui.kiwiland.railroad.RailRoad;
 import br.com.guigui.kiwiland.railroad.Town;
 import br.com.guigui.kiwiland.railroad.Track;
 
-public class TripsWithExactlyStops implements RailRoadAlgorithm
+public class TripsFinderWithMaximumStops implements RailRoadAlgorithm 
 {
 	private String fromCityName;
 	private String toCityName;
 	private List<Path> paths;
-	private int exactlyStopsNumber;
+	private int maxStops;
 
-	public TripsWithExactlyStops(String fromCityName, String toCityName, int exactlyStopsNumber)
+	public TripsFinderWithMaximumStops(String fromCityName, String toCityName, int maxStops)
 	{
 		super();
 		this.fromCityName = fromCityName;
 		this.toCityName = toCityName;
-		this.exactlyStopsNumber = exactlyStopsNumber;
+		this.maxStops = maxStops;
 		paths = new ArrayList<>();
-		if (exactlyStopsNumber <= 0)
+		if (maxStops <= 0)
 			throw new IllegalArgumentException("Stops number must be greater than 0");
 	}
 
@@ -56,13 +56,13 @@ public class TripsWithExactlyStops implements RailRoadAlgorithm
 	private void depthFirstSearch(Path current)
 	{
 		//Avoids useless iterations
-		if (current.getTracks().size() > exactlyStopsNumber)
+		if (current.getTracks().size() > maxStops)
 		{
 			return;
 		}
 
 		//Found candidate 
-		if (current.getLastTown().getName().equals(toCityName) && current.getTracks().size() == exactlyStopsNumber)
+		if (current.getLastTown().getName().equals(toCityName) && current.getTracks().size() > 0)
 		{
 			paths.add(current);
 			return;

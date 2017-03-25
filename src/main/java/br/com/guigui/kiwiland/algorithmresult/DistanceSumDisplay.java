@@ -13,7 +13,7 @@ public class DistanceSumDisplay implements AlgorithmResultDisplay
 		if (paths.isEmpty())
 			return "NO SUCH ROUTE";
 		
-		return String.valueOf(paths.stream().mapToInt(r -> r.getTotalDistance()).sum());
+		return String.valueOf(paths.stream().mapToInt(path -> path.getTotalDistance()).sum());
 	}
 
 }
