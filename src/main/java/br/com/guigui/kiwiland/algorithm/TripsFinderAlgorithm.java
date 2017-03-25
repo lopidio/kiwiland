@@ -49,7 +49,7 @@ public abstract class TripsFinderAlgorithm implements RailRoadAlgorithm
 		}
 	}
 	
-	protected final void addNextTracks(Path path) 
+	protected final void addNextTracksFrom(Path path) 
 	{
 		//Run again
 		for (Track nextTrack : path.getLastTown().getTracks()) 
@@ -60,7 +60,7 @@ public abstract class TripsFinderAlgorithm implements RailRoadAlgorithm
 
 	private void checkNewInsertion(Path path, Track nextTrack)
 	{
-		if (!path.containsTownAsDestination(nextTrack.getDestination()))
+		if (canRepeatCity() || !path.containsTownAsDestination(nextTrack.getDestination()))
 		{
 			List<Track> tracks = path.getTracks();
 			tracks.add(nextTrack);

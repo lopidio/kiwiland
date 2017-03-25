@@ -14,6 +14,7 @@ public class TripsFinderShortestAlgorithm extends TripsFinderAlgorithm
 		super(fromCityName, toCityName);
 	}
 
+	@Override
 	protected void startNewRecursion(Path current)
 	{
 		//Avoids useless iterations
@@ -34,7 +35,7 @@ public class TripsFinderShortestAlgorithm extends TripsFinderAlgorithm
 			return;
 		}
 		
-		addNextTracks(current);
+		addNextTracksFrom(current);
 	}
 
 	@Override
