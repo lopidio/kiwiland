@@ -15,22 +15,22 @@ public class TripsFinderWithMaximumStops extends TripsFinderAlgorithm
 	}
 
 	@Override
-	protected void startNewRecursion(Path current)
+	protected void startNewRecursion(Path path)
 	{
 		//Avoids useless iterations
-		if (current.getTracks().size() > maxStops)
+		if (path.getTracks().size() > maxStops)
 		{
 			return;
 		}
 
 		//Found candidate 
-		if (current.getLastTown().getName().equals(toCityName) && current.getTracks().size() > 0)
+		if (path.getLastTown().getName().equals(toCityName) && path.getTracks().size() > 0)
 		{
-			paths.add(current);
+			paths.add(path);
 			return;
 		}
 		
-		addNextTracksFrom(current);
+		addNextTracksFrom(path);
 	}
 
 }

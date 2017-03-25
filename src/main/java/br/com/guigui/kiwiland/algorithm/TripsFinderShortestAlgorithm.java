@@ -15,27 +15,27 @@ public class TripsFinderShortestAlgorithm extends TripsFinderAlgorithm
 	}
 
 	@Override
-	protected void startNewRecursion(Path current)
+	protected void startNewRecursion(Path path)
 	{
 		//Avoids useless iterations
-		if (null != bestPath && current.getTotalDistance() > bestPath.getTotalDistance())
+		if (null != bestPath && path.getTotalDistance() > bestPath.getTotalDistance())
 		{
 			return;
 		}
 
 		//Found candidate 
-		if (current.getLastTown().getName().equals(toCityName) && current.getTracks().size() > 0)
+		if (path.getLastTown().getName().equals(toCityName) && path.getTracks().size() > 0)
 		{
-			if (null == bestPath || bestPath.getTotalDistance() > current.getTotalDistance())
+			if (null == bestPath || bestPath.getTotalDistance() > path.getTotalDistance())
 			{
-				bestPath = current;
+				bestPath = path;
 				paths = new ArrayList<>();
 				paths.add(bestPath);
 			}
 			return;
 		}
 		
-		addNextTracksFrom(current);
+		addNextTracksFrom(path);
 	}
 
 	@Override

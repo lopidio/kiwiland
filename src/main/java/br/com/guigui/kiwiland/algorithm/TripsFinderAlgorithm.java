@@ -69,7 +69,7 @@ public abstract class TripsFinderAlgorithm implements RailRoadAlgorithm
 		}
 	}
 
-	protected abstract void startNewRecursion(Path current);
+	protected abstract void startNewRecursion(Path path);
 
 	/**
 	 * Overridable hook method 

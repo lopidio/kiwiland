@@ -15,21 +15,21 @@ public class TripsFinderWithExactlyStops extends TripsFinderAlgorithm
 	}
 
 	@Override
-	protected void startNewRecursion(Path current)
+	protected void startNewRecursion(Path path)
 	{
 		//Avoids useless iterations
-		if (current.getTracks().size() > exactlyStopsNumber)
+		if (path.getTracks().size() > exactlyStopsNumber)
 		{
 			return;
 		}
 
 		//Found candidate 
-		if (current.getLastTown().getName().equals(toCityName) && current.getTracks().size() == exactlyStopsNumber)
+		if (path.getLastTown().getName().equals(toCityName) && path.getTracks().size() == exactlyStopsNumber)
 		{
-			paths.add(current);
+			paths.add(path);
 			return;
 		}
 		
-		addNextTracksFrom(current);
+		addNextTracksFrom(path);
 	}
 }

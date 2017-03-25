@@ -15,21 +15,21 @@ public class TripsFinderWithMaximumDistance extends TripsFinderAlgorithm
 	}
 
 	@Override
-	protected void startNewRecursion(Path current)
+	protected void startNewRecursion(Path path)
 	{
 		//Avoids useless iterations
-		if (current.getTotalDistance() > maximumDistance)
+		if (path.getTotalDistance() > maximumDistance)
 		{
 			return;
 		}
 
 		//Found candidate 
-		if (current.getLastTown().getName().equals(toCityName) && current.getTotalDistance() < maximumDistance)
+		if (path.getLastTown().getName().equals(toCityName) && path.getTotalDistance() < maximumDistance)
 		{
-			paths.add(current);
+			paths.add(path);
 		}
 		
-		addNextTracksFrom(current);
+		addNextTracksFrom(path);
 	}
 
 }
