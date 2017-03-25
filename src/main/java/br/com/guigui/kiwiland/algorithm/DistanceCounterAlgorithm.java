@@ -13,12 +13,14 @@ public class DistanceCounterAlgorithm implements RailRoadAlgorithm
 {
 	private List<String> stopTowns;
 	private Town origin;
+	private boolean thereIsARoute;
 	
 	public DistanceCounterAlgorithm(List<String> stopTowns) throws DistanceCounterException
 	{
 		this.stopTowns = stopTowns;
 		if (stopTowns.size() < 2)
 			throw new DistanceCounterException("Impossible to measure distance with only one town: " + stopTowns);
+		thereIsARoute = true;
 	}
 	
 	public RailRoadAlgorithmResult doTheMath(RailRoad railRoad)
@@ -36,11 +38,11 @@ public class DistanceCounterAlgorithm implements RailRoadAlgorithm
 			if (null != track)
 				tracks.add(track);
 			else
-				tracks.clear();
+				thereIsARoute = false;
 			
 		});
 		
-		if (!tracks.isEmpty())
+		if (thereIsARoute)
 			paths.add(new Path(tracks));
 		
 		return new RailRoadAlgorithmResult(paths);
