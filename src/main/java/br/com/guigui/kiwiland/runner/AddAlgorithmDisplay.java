@@ -7,6 +7,7 @@ public class AddAlgorithmDisplay
 {
 	private AlgorithmRunner runner;
 	private RailRoadAlgorithm algorithm;
+	
 	protected AddAlgorithmDisplay(AlgorithmRunner algorithmRunner, RailRoadAlgorithm algorithm)
 	{
 		super();
@@ -16,6 +17,8 @@ public class AddAlgorithmDisplay
 
 	public AlgorithmAdder andDisplayAs(AlgorithmResultDisplay resultDisplay) 
 	{
-		return null;
+		Executor executor = new Executor(algorithm, resultDisplay);
+		runner.addExecutor(executor);
+		return new AlgorithmAdder(runner);
 	}
 }

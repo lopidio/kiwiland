@@ -1,21 +1,20 @@
 package br.com.guigui.kiwiland.runner;
 
-import br.com.guigui.kiwiland.algorithm.DistanceCounterAlgorithm;
+import br.com.guigui.kiwiland.algorithm.RailRoadAlgorithm;
 import br.com.guigui.kiwiland.railroad.RailRoad;
 
 public class AlgorithmAdder 
 {
 	private AlgorithmRunner runner;
 
-	protected AlgorithmAdder()
+	protected AlgorithmAdder(AlgorithmRunner runner)
 	{
-		
+		this.runner = runner;
 	}
 
-	public AddAlgorithmDisplay addOtherAlgorithm(DistanceCounterAlgorithm distanceCounterAlgorithm) 
+	public AddAlgorithmDisplay addOtherAlgorithm(RailRoadAlgorithm algorithm) 
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return runner.addAlgorithm(algorithm);
 	}
 
 	public void runWith(RailRoad railRoad) 

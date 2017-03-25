@@ -1,10 +1,7 @@
 package br.com.guigui.kiwiland.runner;
 
-import java.util.List;
-
 import br.com.guigui.kiwiland.algorithm.RailRoadAlgorithm;
 import br.com.guigui.kiwiland.algorithmresult.AlgorithmResultDisplay;
-import br.com.guigui.kiwiland.railroad.Path;
 import br.com.guigui.kiwiland.railroad.RailRoad;
 
 class Executor
@@ -20,10 +17,9 @@ class Executor
 		this.algorithmResultDisplay = algorithmResult;
 	}
 
-	public List<Path> execute(RailRoad railRoad)
+	public String execute(RailRoad railRoad)
 	{
-		return null;
-//		return algorithm.doTheMath(railRoad);
+    	return algorithmResultDisplay.displayResult(algorithm.doTheMath(railRoad));
 	}
 
 }

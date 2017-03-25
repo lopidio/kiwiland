@@ -25,23 +25,19 @@ public class Kiwiland
     	RailRoadBuilder builder = new StringRailRoadBuilder("AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7");
     	RailRoad railRoad = builder.buildRailRoad();
 
-//    	AlgorithmRunner runner = new AlgorithmRunner();
-//        	runner.addAlgorithm(new DistanceCounterAlgorithm(Arrays.asList("A", "B", "C"))).andDisplayAs(new DistanceSumDisplay()).
-//				addOtherAlgorithm(new DistanceCounterAlgorithm(Arrays.asList("A", "B", "C"))).andDisplayAs(new DistanceSumDisplay()).
-//				addOtherAlgorithm(new DistanceCounterAlgorithm(Arrays.asList("A", "B", "C"))).andDisplayAs(new DistanceSumDisplay()).
-//				addOtherAlgorithm(new DistanceCounterAlgorithm(Arrays.asList("A", "B", "C"))).andDisplayAs(new DistanceSumDisplay()).
-//				addOtherAlgorithm(new DistanceCounterAlgorithm(Arrays.asList("A", "B", "C"))).andDisplayAs(new DistanceSumDisplay()).runWith(railRoad);
-    	
-    	System.out.println(new DistanceSumDisplay().displayResult(new DistanceCounterAlgorithm(Arrays.asList("A", "B", "C")).doTheMath(railRoad)));
-    	System.out.println(new DistanceSumDisplay().displayResult(new DistanceCounterAlgorithm(Arrays.asList("A", "D")).doTheMath(railRoad)));
-    	System.out.println(new DistanceSumDisplay().displayResult(new DistanceCounterAlgorithm(Arrays.asList("A", "D", "C")).doTheMath(railRoad)));
-    	System.out.println(new DistanceSumDisplay().displayResult(new DistanceCounterAlgorithm(Arrays.asList("A", "E", "B", "C", "D")).doTheMath(railRoad)));
-    	System.out.println(new DistanceSumDisplay().displayResult(new DistanceCounterAlgorithm(Arrays.asList("A", "E", "D")).doTheMath(railRoad)));
-    	System.out.println(new PathsCounterDisplay().displayResult(new TripsWithMaximumStops("C", "C", 3).doTheMath(railRoad)));
-    	System.out.println(new PathsCounterDisplay().displayResult(new TripsWithExactlyStops("A", "C", 4).doTheMath(railRoad)));
-    	System.out.println(new DistanceSumDisplay().displayResult(new ShortestPathAlgorithm("A", "C").doTheMath(railRoad)));
-    	System.out.println(new DistanceSumDisplay().displayResult(new ShortestPathAlgorithm("B", "B").doTheMath(railRoad)));
-    	System.out.println(new PathsCounterDisplay().displayResult(new TripsWithMaximumDistance("C", "C", 30).doTheMath(railRoad)));
+    	AlgorithmRunner runner = new AlgorithmRunner();
+    	runner.
+    		addAlgorithm(new DistanceCounterAlgorithm(Arrays.asList("A", "B", "C"))).andDisplayAs(new DistanceSumDisplay()).
+			addOtherAlgorithm(new DistanceCounterAlgorithm(Arrays.asList("A", "D"))).andDisplayAs(new DistanceSumDisplay()).
+			addOtherAlgorithm(new DistanceCounterAlgorithm(Arrays.asList("A", "D", "C"))).andDisplayAs(new DistanceSumDisplay()).
+			addOtherAlgorithm(new DistanceCounterAlgorithm(Arrays.asList("A", "E", "B", "C", "D"))).andDisplayAs(new DistanceSumDisplay()).
+			addOtherAlgorithm(new DistanceCounterAlgorithm(Arrays.asList("A", "E", "D"))).andDisplayAs(new DistanceSumDisplay()).
+			addOtherAlgorithm(new TripsWithMaximumStops("C", "C", 3)).andDisplayAs(new PathsCounterDisplay()).
+			addOtherAlgorithm(new TripsWithExactlyStops("A", "C", 4)).andDisplayAs(new PathsCounterDisplay()).
+			addOtherAlgorithm(new ShortestPathAlgorithm("A", "C")).andDisplayAs(new DistanceSumDisplay()).
+			addOtherAlgorithm(new ShortestPathAlgorithm("B", "B")).andDisplayAs(new DistanceSumDisplay()).
+			addOtherAlgorithm(new TripsWithMaximumDistance("C", "C", 30)).andDisplayAs(new PathsCounterDisplay()).				
+			runWith(railRoad);
     	
 //    	Output #1: 9
 //    	Output #2: 5
