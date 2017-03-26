@@ -9,6 +9,7 @@ import br.com.guigui.kiwiland.algorithm.TripsFinderWithMaximumDistance;
 import br.com.guigui.kiwiland.algorithm.TripsFinderWithMaximumStops;
 import br.com.guigui.kiwiland.algorithmresult.DistanceSumDisplay;
 import br.com.guigui.kiwiland.algorithmresult.PathsCounterDisplay;
+import br.com.guigui.kiwiland.builder.InputRailRoadBuilder;
 import br.com.guigui.kiwiland.builder.RailRoadBuilder;
 import br.com.guigui.kiwiland.builder.StringRailRoadBuilder;
 import br.com.guigui.kiwiland.railroad.RailRoad;
@@ -23,7 +24,8 @@ public class Kiwiland
 	
     public Kiwiland()
     {
-    	builder = new StringRailRoadBuilder("AB7, BC9, CD8, DC4, DE6, AD9, CE12, EB6, AE7, FA4, DF5, FC6");
+//    	builder = new StringRailRoadBuilder("AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7");
+    	builder = new InputRailRoadBuilder();
     	railRoad = builder.buildRailRoad();
     	
     	runner = new AlgorithmRunner();
@@ -34,23 +36,23 @@ public class Kiwiland
 		runner.
 		addAlgorithm(new DistanceCounterAlgorithm(Arrays.asList("A", "B", "C"))).andDisplayAs(new DistanceSumDisplay()).
 		addAnotherAlgorithm(new DistanceCounterAlgorithm(Arrays.asList("A", "D"))).andDisplayAs(new DistanceSumDisplay()).
-		addAnotherAlgorithm(new TripsFinderWithMaximumStops("A", "F", 3)).andDisplayAs(new PathsCounterDisplay()).
-		addAnotherAlgorithm(new TripsFinderShortestAlgorithm("A", "F")).andDisplayAs(new DistanceSumDisplay()).
-		addAnotherAlgorithm(new DistanceCounterAlgorithm(Arrays.asList("F", "D", "C"))).andDisplayAs(new DistanceSumDisplay()).
+		addAnotherAlgorithm(new DistanceCounterAlgorithm(Arrays.asList("A", "D", "C"))).andDisplayAs(new DistanceSumDisplay()).
 		addAnotherAlgorithm(new DistanceCounterAlgorithm(Arrays.asList("A", "E", "B", "C", "D"))).andDisplayAs(new DistanceSumDisplay()).
 		addAnotherAlgorithm(new DistanceCounterAlgorithm(Arrays.asList("A", "E", "D"))).andDisplayAs(new DistanceSumDisplay()).
 		addAnotherAlgorithm(new TripsFinderWithMaximumStops("C", "C", 3)).andDisplayAs(new PathsCounterDisplay()).
 		addAnotherAlgorithm(new TripsFinderWithExactlyStops("A", "C", 4)).andDisplayAs(new PathsCounterDisplay()).
 		addAnotherAlgorithm(new TripsFinderShortestAlgorithm("A", "C")).andDisplayAs(new DistanceSumDisplay()).
-		addAnotherAlgorithm(new TripsFinderShortestAlgorithm("C", "F")).andDisplayAs(new DistanceSumDisplay()).
-		addAnotherAlgorithm(new TripsFinderShortestAlgorithm("F", "F")).andDisplayAs(new DistanceSumDisplay()).
 		addAnotherAlgorithm(new TripsFinderShortestAlgorithm("B", "B")).andDisplayAs(new DistanceSumDisplay()).
-		addAnotherAlgorithm(new TripsFinderWithMaximumDistance("C", "C", 30)).andDisplayAs(new PathsCounterDisplay()).				
+		addAnotherAlgorithm(new TripsFinderWithMaximumDistance("C", "C", 30)).andDisplayAs(new PathsCounterDisplay()).
 		runWith(railRoad);
 	}
 
 	public static void main( String[] args )
     {
+		for (String string : args)
+		{
+			System.out.println(string);
+		}
 		Kiwiland kiwiland = new Kiwiland();
 		kiwiland.execute();
     	
