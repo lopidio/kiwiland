@@ -23,6 +23,7 @@ public class DistanceCounterAlgorithm implements RailRoadAlgorithm
 		thereIsARoute = true;
 	}
 	
+	@Override
 	public RailRoadAlgorithmResult doTheMath(RailRoad railRoad)
 	{
 		origin = railRoad.getTown(stopTowns.stream().findFirst().orElseThrow(() -> new RuntimeException("There is no such string name")));

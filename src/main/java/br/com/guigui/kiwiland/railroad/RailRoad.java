@@ -12,12 +12,13 @@ public class RailRoad
 		towns = new HashMap<>();
 	}
 
-	public void addTrack(String fromTownName, String toTownName, int distance)
+	public Track addTrack(String fromTownName, String toTownName, int distance)
 	{
 		Town from = getOrCreateTown(fromTownName);
 		Town to = getOrCreateTown(toTownName);
 		Track track = new Track(from, to, distance);
 		from.addTrack(track);
+		return track;
 	}
 	
 	public Town getTown(String townName)

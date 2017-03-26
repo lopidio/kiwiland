@@ -8,13 +8,13 @@ import br.com.guigui.kiwiland.railroad.RailRoad;
 import br.com.guigui.kiwiland.railroad.Town;
 import br.com.guigui.kiwiland.railroad.Track;
 
-public abstract class TripsFinderAlgorithm implements RailRoadAlgorithm
+abstract class TripsFinderAlgorithm implements RailRoadAlgorithm
 {
-	protected String fromCityName;
+	private String fromCityName;
 	protected String toCityName;
 	protected List<Path> paths;
 
-	public TripsFinderAlgorithm(String fromCityName, String toCityName)
+	TripsFinderAlgorithm(String fromCityName, String toCityName)
 	{
 		super();
 		this.fromCityName = fromCityName;
@@ -22,6 +22,7 @@ public abstract class TripsFinderAlgorithm implements RailRoadAlgorithm
 		paths = new ArrayList<Path>();
 	}
 
+	@Override
 	public final RailRoadAlgorithmResult doTheMath(RailRoad railRoad)
 	{
 		// Algo:

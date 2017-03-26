@@ -7,6 +7,7 @@ import br.com.guigui.kiwiland.railroad.Path;
 
 public class DistanceSumDisplay implements AlgorithmResultDisplay
 {
+	@Override
 	public String displayResult(RailRoadAlgorithmResult result) 
 	{
 		List<Path> paths = result.getPaths();

@@ -6,7 +6,7 @@ public class Track
 	private Town destination;
 	private int distance;
 
-	public Track(Town origin, Town destination, int distance)
+	Track(Town origin, Town destination, int distance)
 	{
 		this.origin = origin;
 		this.destination = destination;

@@ -18,18 +18,6 @@ public class Path
 		return new ArrayList<>(tracks);
 	}
 	
-	public boolean addTrackTo(Town town)
-	{
-		if (tracks.isEmpty())
-			return false;
-		Town lastTown = tracks.get(tracks.size() - 1).getDestination();
-		Track newTrack = lastTown.getTrackTo(town);
-		if (null == newTrack)
-			return false;
-		tracks.add(newTrack);
-		return true;
-	}
-
 	public int getTotalDistance()
 	{
 		return tracks.stream().mapToInt(r -> r.getDistance()).sum();

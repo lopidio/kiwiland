@@ -21,7 +21,7 @@ public class AlgorithmRunner
 		return new AddAlgorithmDisplay(this, algorithm);
 	}
 
-	public void execute(RailRoad railRoad) 
+	void execute(RailRoad railRoad) 
 	{
 		executors.stream().forEachOrdered( x ->
 		{

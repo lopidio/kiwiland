@@ -1,5 +1,6 @@
 package br.com.guigui.kiwiland.railroad;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +13,7 @@ public class Town
 	 */
 	private Map<Town, Track> tracks;
 	
-	public Town(String name)
+	Town(String name)
 	{
 		this.name = name;
 		tracks = new HashMap<Town, Track>();
@@ -23,14 +24,14 @@ public class Town
 		return name;
 	}
 
-	public void addTrack(Track track)
+	void addTrack(Track track)
 	{
 		tracks.put(track.getDestination(), track);
 	}
 
 	public Collection<Track> getTracks()
 	{
-		return tracks.values();
+		return new ArrayList<>(tracks.values());
 	}
 
 	public Track getTrackTo(Town town)
