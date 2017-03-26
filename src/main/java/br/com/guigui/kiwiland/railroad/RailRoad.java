@@ -17,8 +17,9 @@ public class RailRoad
 		Town from = getOrCreateTown(fromTownName);
 		Town to = getOrCreateTown(toTownName);
 		Track track = new Track(from, to, distance);
-		from.addTrack(track);
-		return track;
+		if (from.addTrack(track))
+			return track;
+		return null;
 	}
 	
 	public Town getTown(String townName)

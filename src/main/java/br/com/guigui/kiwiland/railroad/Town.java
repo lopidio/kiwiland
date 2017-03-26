@@ -24,9 +24,14 @@ public class Town
 		return name;
 	}
 
-	void addTrack(Track track)
+	boolean addTrack(Track track)
 	{
-		tracks.put(track.getDestination(), track);
+		if (track.getOrigin() == this)
+		{
+			tracks.put(track.getDestination(), track);
+			return true;
+		}
+		return false;
 	}
 
 	public Collection<Track> getTracks()
