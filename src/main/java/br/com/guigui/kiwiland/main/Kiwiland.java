@@ -1,5 +1,7 @@
 package br.com.guigui.kiwiland.main;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 
 import br.com.guigui.kiwiland.algorithm.DistanceCounterAlgorithm;
@@ -11,7 +13,6 @@ import br.com.guigui.kiwiland.algorithmresult.DistanceSumDisplay;
 import br.com.guigui.kiwiland.algorithmresult.PathsCounterDisplay;
 import br.com.guigui.kiwiland.builder.InputRailRoadBuilder;
 import br.com.guigui.kiwiland.builder.RailRoadBuilder;
-import br.com.guigui.kiwiland.builder.StringRailRoadBuilder;
 import br.com.guigui.kiwiland.railroad.RailRoad;
 import br.com.guigui.kiwiland.runner.AlgorithmRunner;
 
@@ -24,8 +25,10 @@ public class Kiwiland
 	
     public Kiwiland()
     {
-//    	builder = new StringRailRoadBuilder("AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7");
-    	builder = new InputRailRoadBuilder();
+//    	builder = new InputRailRoadBuilder(new InputStreamReader(System.in));
+    	builder = new InputRailRoadBuilder(
+    				new InputStreamReader(
+    				new ByteArrayInputStream("AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7".getBytes())));
     	railRoad = builder.buildRailRoad();
     	
     	runner = new AlgorithmRunner();
