@@ -1,8 +1,8 @@
 package br.com.guigui.kiwiland.railroad;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Town
@@ -37,7 +37,7 @@ public class Town
 		return true;
 	}
 
-	public Collection<Track> getTracks()
+	public List<Track> getTracks()
 	{
 		return new ArrayList<>(tracks.values());
 	}

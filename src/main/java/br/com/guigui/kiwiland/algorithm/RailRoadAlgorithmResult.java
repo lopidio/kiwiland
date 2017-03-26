@@ -9,10 +9,10 @@ public class RailRoadAlgorithmResult
 {
 	private List<Path> paths;
 
-	RailRoadAlgorithmResult(List<Path> path)
+	public RailRoadAlgorithmResult(List<Path> path)
 	{
 		super();
-		this.paths = path;
+		this.paths = new ArrayList<>(path);
 	}
 
 	public RailRoadAlgorithmResult() 
