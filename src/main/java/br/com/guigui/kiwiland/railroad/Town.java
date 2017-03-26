@@ -26,12 +26,15 @@ public class Town
 
 	boolean addTrack(Track track)
 	{
-		if (track.getOrigin() == this)
-		{
-			tracks.put(track.getDestination(), track);
-			return true;
-		}
-		return false;
+		//Already exists
+		if (null != getTrackTo(track.getDestination()))
+			return false;
+
+		//Track origin is not me
+		if (track.getOrigin() != this)
+			return false;
+		tracks.put(track.getDestination(), track);
+		return true;
 	}
 
 	public Collection<Track> getTracks()

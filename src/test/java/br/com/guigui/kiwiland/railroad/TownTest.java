@@ -5,7 +5,16 @@ import junit.framework.TestCase;
 public class TownTest extends TestCase
 {
 
-	public void testAddGetTrack()
+	public void testNotTheOriginTrack()
+	{
+		Town townsVille = new Town("TownsVille");
+		Town alameda = new Town("Alameda dos Anjos");
+
+		Track notTheOriginTrack = new Track(alameda, townsVille, 10);
+		assertFalse(townsVille.addTrack(notTheOriginTrack));
+	}
+
+	public void testSingleAdd()
 	{
 		Town townsVille = new Town("TownsVille");
 		Town alameda = new Town("Alameda dos Anjos");
@@ -13,17 +22,19 @@ public class TownTest extends TestCase
 
 		assertEquals(0, townsVille.getTracks().size());
 		assertFalse(townsVille.getTracks().stream().findFirst().isPresent());
-		townsVille.addTrack(trackToAlameda);
+		assertTrue(townsVille.addTrack(trackToAlameda));
 		assertTrue(townsVille.getTracks().stream().findFirst().isPresent());
-		assertEquals(1, townsVille.getTracks().size());
+	}
 
-		Town fortaleza = new Town("Fortaleza");
-		Track trackToFortaleza = new Track(townsVille, fortaleza, 10);
-		townsVille.addTrack(trackToFortaleza);
-		assertEquals(2, townsVille.getTracks().size());
-		
-		Track inverseTrack = new Track(fortaleza, townsVille, 10);
-		assertFalse(townsVille.addTrack(inverseTrack));
+
+	public void testDoubleAdd()
+	{
+		Town townsVille = new Town("TownsVille");
+		Town alameda = new Town("Alameda dos Anjos");
+		Track trackToAlameda = new Track(townsVille, alameda, 10);
+
+		assertTrue(townsVille.addTrack(trackToAlameda));
+		assertFalse(townsVille.addTrack(trackToAlameda));
 	}
 
 	public void testGetTrackTo()
