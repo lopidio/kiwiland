@@ -1,7 +1,7 @@
 package br.com.guigui.kiwiland.runner;
 
 import br.com.guigui.kiwiland.algorithm.RailRoadAlgorithm;
-import br.com.guigui.kiwiland.algorithmresult.AlgorithmResultDisplay;
+import br.com.guigui.kiwiland.algorithmresultdisplay.AlgorithmResultDisplay;
 
 public class AddAlgorithmDisplay
 {

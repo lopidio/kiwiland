@@ -1,4 +1,4 @@
-package br.com.guigui.kiwiland.algorithmresult;
+package br.com.guigui.kiwiland.algorithmresultdisplay;
 
 import br.com.guigui.kiwiland.algorithm.RailRoadAlgorithmResult;
 

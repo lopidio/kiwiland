@@ -1,4 +1,4 @@
-package br.com.guigui.kiwiland.algorithmresult;
+package br.com.guigui.kiwiland.algorithmresultdisplay;
 
 import java.util.List;
 
