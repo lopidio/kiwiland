@@ -25,11 +25,10 @@ abstract class TripsFinderAlgorithm implements RailRoadAlgorithm
 	@Override
 	public final RailRoadAlgorithmResult doTheMath(RailRoad railRoad)
 	{
-		// Algo:
-		// 1. Take the unvisited node with minimum weight.
-		// 2. Visit all its neighbours.
-		// 3. Update the distances for all the neighbours (In the Priority Queue).
-		// Repeat the process till all the connected nodes are visited.
+		// 1. Initializes candidates paths with all tracks from initial city
+		// 2. Recursively, adds all tracks from destination city
+		// 3. Repeats till find exit criteria
+		// Exit criteria are subclasses responsibility
 		
 		Town origin = railRoad.getTown(fromCityName);
 		if (null != origin)

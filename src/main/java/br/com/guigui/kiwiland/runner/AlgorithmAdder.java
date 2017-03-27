@@ -7,7 +7,7 @@ public class AlgorithmAdder
 {
 	private AlgorithmRunner runner;
 
-	protected AlgorithmAdder(AlgorithmRunner runner)
+	AlgorithmAdder(AlgorithmRunner runner)
 	{
 		this.runner = runner;
 	}
