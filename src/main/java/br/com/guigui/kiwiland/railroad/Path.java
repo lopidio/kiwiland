@@ -13,7 +13,7 @@ public class Path
 		this.tracks = tracks;
 	}
 
-	public List<Track> getTracks()
+	public ArrayList<Track> getTracks()
 	{
 		return new ArrayList<>(tracks);
 	}

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class Town
 {
@@ -45,6 +46,16 @@ public class Town
 	public Track getTrackTo(Town town)
 	{
 		return tracks.get(town);
+	}
+
+	public Track getTrackTo(String townName)
+	{
+		for (Entry<Town, Track> track : tracks.entrySet())
+		{
+			if (track.getValue().getDestination().getName().equals(townName))
+				return track.getValue();
+		}
+		return null;
 	}
 
 	@Override

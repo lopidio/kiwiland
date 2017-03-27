@@ -6,7 +6,6 @@ import java.util.List;
 import br.com.guigui.kiwiland.algorithm.RailRoadAlgorithmResult;
 import br.com.guigui.kiwiland.railroad.Path;
 import br.com.guigui.kiwiland.railroad.RailRoad;
-import br.com.guigui.kiwiland.railroad.Track;
 import junit.framework.TestCase;
 
 public class PathsCounterDisplayTest extends TestCase
@@ -17,11 +16,8 @@ public class PathsCounterDisplayTest extends TestCase
 	public PathsCounterDisplayTest()
 	{
 		paths = new ArrayList<Path>(); 
-		
 		road = new RailRoad();
 		road.addTrack("A", "B", 10);
-		
-		
 	}
 
 	public void testDisplayResult()
