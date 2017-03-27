@@ -1,6 +1,5 @@
 package br.com.guigui.kiwiland.main;
 
-import java.io.ByteArrayInputStream;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
@@ -25,10 +24,10 @@ public class Kiwiland
 	
     public Kiwiland()
     {
-//    	builder = new InputRailRoadBuilder(new InputStreamReader(System.in));
-    	builder = new InputRailRoadBuilder(
-    				new InputStreamReader(
-    				new ByteArrayInputStream("AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7".getBytes())));
+    	builder = new InputRailRoadBuilder(new InputStreamReader(System.in));
+//    	builder = new InputRailRoadBuilder(
+//    				new InputStreamReader(
+//    				new ByteArrayInputStream("AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7".getBytes())));
     	railRoad = builder.buildRailRoad();
     	
     	runner = new AlgorithmRunner();
